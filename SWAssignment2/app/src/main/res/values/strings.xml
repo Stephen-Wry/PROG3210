@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">SWAssignment2</string>
+
+    <string name="title">Super Blackjack</string>
+    <string name="name_label">Player</string>
+    <string name="playerLabel">Player:</string>
+    <string name="dealerLabel">Dealer</string>
+    <string name="Login">Login</string>
+    <string name="Register">Create Account</string>
+    <string name="title_activity_register">Settings</string>
+    <string name="logo">Logo</string>
+    <string name="subtitle">PROG3210 Assignment 2</string>
+    <string name="register_name">Username</string>
+    <string name="register_password">Password</string>
+</resources>

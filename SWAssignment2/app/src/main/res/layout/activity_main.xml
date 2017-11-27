@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="ca.on.conestogac.swassignment2.MainActivity"
+    android:background="@drawable/back">
+
+    <TextView
+        android:id="@+id/dealerLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:background="#8ed861"
+        android:text="@string/dealerLabel"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/dealerCards"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/dealerLabel"
+        android:layout_alignBottom="@+id/dealerLabel"
+        android:layout_marginLeft="11dp"
+        android:layout_marginStart="11dp"
+        android:layout_toEndOf="@+id/dealerLabel"
+        android:layout_toRightOf="@+id/dealerLabel"
+        android:padding="5dp"
+        android:text=""
+        android:textColor="#ffffff"
+        android:textSize="20sp" />
+
+    <!-- the total -->
+
+    <TextView
+        android:id="@+id/playerLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="@string/playerLabel"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:background="#8ed861"
+        android:layout_marginBottom="19dp"
+        android:layout_above="@+id/buttonHit"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:id="@+id/playerCards"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/playerLabel"
+        android:layout_alignBottom="@+id/playerLabel"
+        android:layout_marginLeft="11dp"
+        android:layout_marginStart="11dp"
+        android:layout_toEndOf="@+id/dealerLabel"
+        android:layout_toRightOf="@+id/dealerLabel"
+        android:padding="5dp"
+        android:text=""
+        android:textColor="#ffffff"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/buttonFold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:width="120dp"
+        android:background="@android:drawable/alert_dark_frame"
+        android:text="Fold"
+        android:textColor="#911b2a"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/buttonStay"
+        android:layout_toEndOf="@+id/buttonStay" />
+
+    <Button
+        android:id="@+id/buttonStay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:width="120dp"
+        android:background="@android:drawable/alert_light_frame"
+        android:text="Stay" />
+
+    <Button
+        android:id="@+id/buttonHit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_toLeftOf="@+id/buttonStay"
+        android:layout_toStartOf="@+id/buttonStay"
+        android:width="120dp"
+        android:background="@android:drawable/alert_light_frame"
+        android:text="Hit" />
+
+    <TextView
+        android:id="@+id/money"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/playerLabel"
+        android:textColor="#ffffff"
+        android:textSize="20sp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
+
+    <TextView
+        android:id="@+id/playerTotal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/playerLabel"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginEnd="15dp"
+        android:layout_marginRight="15dp"
+        android:textColor="#ffffff"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/dealerTotal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="15dp"
+        android:layout_marginRight="15dp"
+        android:textColor="#ffffff"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/textBust"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-condensed"
+        android:text="BUST"
+        android:textColor="#c40b0b"
+        android:textSize="120sp"
+        android:textStyle="bold"
+        android:visibility="invisible"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/buttonBet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:width="360dp"
+        android:text="Bet"
+        android:visibility="invisible"
+        android:layout_below="@+id/playerLabel"
+        android:layout_alignLeft="@+id/buttonHit"
+        android:layout_alignStart="@+id/buttonHit" />
+</RelativeLayout>
