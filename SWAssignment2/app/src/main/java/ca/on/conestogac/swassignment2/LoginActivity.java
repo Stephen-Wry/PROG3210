@@ -22,9 +22,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        Button btnEasy = (Button) findViewById(R.id.buttonEasy);
-        Button btnNorm = (Button) findViewById(R.id.buttonNormal);
-        Button btnHard = (Button) findViewById(R.id.buttonHard);
         Button btnLogin = (Button) findViewById(R.id.buttonLogin);
         Button btnRegister = (Button) findViewById(R.id.buttonRegister);
 
@@ -32,36 +29,29 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         txtPassword = (EditText) findViewById(R.id.txtPassword);
 
         // Set listeners
-        btnEasy.setOnClickListener(this);
-        btnNorm.setOnClickListener(this);
-        btnHard.setOnClickListener(this);
         btnLogin.setOnClickListener(this);
         btnRegister.setOnClickListener(this);
 
         Log.d("Reading: ", "Reading all players ...");
         ArrayList<Player> players = db.getPlayers();
         for (Player player : players) {
-            String log = "Id: " + player.getId() + " ,Name: " + player.getName() + " ,Password: " + player.getPassword();
-            // Writing players to log
-            Log.d("Task: : ", log);
+            String log = "Id: " + player.getId() + ", Name: " + player.getName() + ", Password: " + player.getPassword();
+            Log.d("Player: : ", log);
+        }
+
+        Log.d("Reading: ", "Reading all cards ...");
+        ArrayList<Card> cards = db.getCards();
+        for (Card card : cards) {
+            String log = "Id: " + card.getId() + ", Value: " + card.getValue() + ", Type: " + card.getType();
+            Log.d("Card: : ", log);
         }
     }
 
     @Override
     public void onClick(View view) {
-        int difficulty = 200;
         switch (view.getId()) {
-            case R.id.buttonEasy:
-                difficulty = 200;
-                break;
-            case R.id.buttonNormal:
-                difficulty = 100;
-                break;
-            case R.id.buttonHard:
-                difficulty = 50;
-                break;
             case R.id.buttonLogin:
-                Login(100);
+                Login();
                 break;
             case R.id.buttonRegister:
                 Register();
@@ -69,7 +59,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         }
     }
 
-    public void Login(int difficulty) {
+    public void Login() {
         String playerName = txtLoginName.getText().toString();
         if (playerName == null || playerName.isEmpty()) {
             // NULL
@@ -78,14 +68,13 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             Player player = db.getPlayer(playerName);
             if (player.getPassword().equals(txtPassword.getText().toString())) {
                 Intent openMainActivity = new Intent(LoginActivity.this, MainActivity.class);
-                openMainActivity.putExtra("difficulty", difficulty);
-                openMainActivity.putExtra("playerName", playerName);
+                openMainActivity.putExtra("player", playerName);
+                openMainActivity.putExtra("playerLevel", player.getLevel());
+                openMainActivity.putExtra("playerXP", player.getXp());
+                openMainActivity.putExtra("playerXP", player.getCash());
                 startActivity((openMainActivity));
                 finish();
             } else {
-                String log = "Id: " + player.getId() + " ,Name: " + player.getName() + " ,Password: " + player.getPassword();
-                // Writing players to log
-                Log.d("Task: : ", log);
                 //wrong password
             }
         }
