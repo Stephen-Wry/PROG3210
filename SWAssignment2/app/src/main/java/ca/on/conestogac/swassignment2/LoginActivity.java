@@ -68,10 +68,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             Player player = db.getPlayer(playerName);
             if (player.getPassword().equals(txtPassword.getText().toString())) {
                 Intent openMainActivity = new Intent(LoginActivity.this, MainActivity.class);
-                openMainActivity.putExtra("player", playerName);
-                openMainActivity.putExtra("playerLevel", player.getLevel());
-                openMainActivity.putExtra("playerXP", player.getXp());
-                openMainActivity.putExtra("playerXP", player.getCash());
+                openMainActivity.putExtra("playerName", player.getName());
                 startActivity((openMainActivity));
                 finish();
             } else {

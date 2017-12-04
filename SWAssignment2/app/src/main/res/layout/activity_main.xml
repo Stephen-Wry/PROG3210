@@ -11,9 +11,30 @@
         android:id="@+id/dealerLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="10dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         android:background="#8ed861"
+        android:padding="3dp"
         android:text="@string/dealerLabel"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/playerLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/imgPlayer1"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="11dp"
+        android:layout_toEndOf="@+id/money"
+        android:layout_toRightOf="@+id/money"
+        android:background="#8ed861"
+        android:padding="3dp"
+        android:text="@string/playerLabel"
         android:textSize="20sp"
         android:textStyle="bold" />
 
@@ -31,22 +52,6 @@
         android:text=""
         android:textColor="#ffffff"
         android:textSize="20sp" />
-
-    <!-- the total -->
-
-    <TextView
-        android:id="@+id/playerLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/textBust"
-        android:layout_alignBottom="@+id/textBust"
-        android:layout_alignLeft="@+id/imgPlayer1"
-        android:layout_alignStart="@+id/imgPlayer1"
-        android:background="#8ed861"
-        android:padding="10dp"
-        android:text="@string/playerLabel"
-        android:textSize="20sp"
-        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/playerCards"
@@ -110,11 +115,10 @@
         android:id="@+id/playerTotal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/playerLabel"
+        android:layout_alignTop="@+id/playerLabel"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_marginEnd="15dp"
-        android:layout_marginRight="15dp"
+        android:layout_margin="7dp"
         android:textColor="#ffffff"
         android:text="" />
 
@@ -125,8 +129,7 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
-        android:layout_marginEnd="15dp"
-        android:layout_marginRight="15dp"
+        android:layout_margin="7dp"
         android:textColor="#ffffff"
         android:text="" />
 
@@ -141,6 +144,7 @@
         android:textStyle="bold"
         android:visibility="invisible"
         android:layout_centerVertical="true"
+        android:layout_marginBottom="20dp"
         android:layout_centerHorizontal="true" />
 
     <Button
@@ -150,7 +154,7 @@
         android:width="360dp"
         android:text="Bet"
         android:visibility="invisible"
-        android:layout_below="@+id/playerLabel"
+        android:layout_alignTop="@+id/buttonHit"
         android:layout_alignLeft="@+id/buttonHit"
         android:layout_alignStart="@+id/buttonHit" />
 
@@ -207,5 +211,60 @@
         android:layout_toEndOf="@+id/imgPlayer4"
         android:layout_toRightOf="@+id/imgPlayer4"
         app:srcCompat="@drawable/card34" />
+
+    <ImageView
+        android:id="@+id/imgDealer1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/imgDealer3"
+        android:layout_marginLeft="3dp"
+        android:layout_marginRight="3dp"
+        android:layout_toLeftOf="@+id/imgDealer2"
+        android:layout_toStartOf="@+id/imgDealer2"
+        app:srcCompat="@drawable/card15" />
+
+    <ImageView
+        android:id="@+id/imgDealer2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/imgDealer3"
+        android:layout_marginLeft="3dp"
+        android:layout_marginRight="3dp"
+        android:layout_toLeftOf="@+id/imgDealer3"
+        android:layout_toStartOf="@+id/imgDealer3"
+        app:srcCompat="@drawable/card10" />
+
+    <ImageView
+        android:id="@+id/imgDealer3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/dealerLabel"
+        android:layout_marginLeft="3dp"
+        android:layout_marginRight="3dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="12dp"
+        app:srcCompat="@drawable/card1" />
+
+    <ImageView
+        android:id="@+id/imgDealer4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/imgDealer3"
+        android:layout_marginLeft="3dp"
+        android:layout_marginRight="3dp"
+        android:layout_toRightOf="@+id/imgPlayer3"
+        android:layout_toEndOf="@+id/imgPlayer3"
+        app:srcCompat="@drawable/card2" />
+
+    <ImageView
+        android:id="@+id/imgDealer5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/imgDealer3"
+        android:layout_marginLeft="3dp"
+        android:layout_marginRight="3dp"
+        android:layout_toRightOf="@+id/imgPlayer4"
+        android:layout_toEndOf="@+id/imgPlayer4"
+        app:srcCompat="@drawable/card20" />
 
 </RelativeLayout>

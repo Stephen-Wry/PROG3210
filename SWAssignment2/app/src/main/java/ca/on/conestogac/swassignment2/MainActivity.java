@@ -3,11 +3,13 @@ package ca.on.conestogac.swassignment2;
 import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.lang.reflect.Array;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,16 +19,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private View screen;
     private TextView txtPlayerCards, txtDealerCards, txtMoney, txtDealerTotal, txtPlayerTotal;
-    private ArrayList<ImageView> playerImages = new ArrayList<>();
-    private ArrayList<ImageView> dealerImages = new ArrayList<>();
+    private List<ImageView> playerImages = new ArrayList<>();
+    private List<ImageView> dealerImages = new ArrayList<>();
     private TextView txtBust, txtPlayerName;
     private int playerTotal, dealerTotal;
     private int playerCount, dealerCount;
     private List<Integer> playerCards = new ArrayList<Integer>();
     private List<Integer> dealerCards = new ArrayList<Integer>();
-
-    private List<Drawable> drawables = new ArrayList<>();
     private Button btnBet, btnHit, btnStay, btnFold;
+    private Player player;
+    NumberFormat currency = NumberFormat.getCurrencyInstance();
 
     AssignmentDB db = new AssignmentDB(this);
 
@@ -49,22 +51,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnStay = (Button) findViewById(R.id.buttonStay);
         btnFold = (Button) findViewById(R.id.buttonFold);
 
-        playerImages.add((ImageView) findViewById(R.id.imgPlayer3));
+        playerImages.add((ImageView) findViewById(R.id.imgPlayer1));
         playerImages.add((ImageView) findViewById(R.id.imgPlayer2));
         playerImages.add((ImageView) findViewById(R.id.imgPlayer3));
         playerImages.add((ImageView) findViewById(R.id.imgPlayer4));
         playerImages.add((ImageView) findViewById(R.id.imgPlayer5));
 
-
-        //drawables.add(R.drawable.card41);
-
-        /*
         dealerImages.add((ImageView) findViewById(R.id.imgDealer1));
         dealerImages.add((ImageView) findViewById(R.id.imgDealer2));
         dealerImages.add((ImageView) findViewById(R.id.imgDealer3));
         dealerImages.add((ImageView) findViewById(R.id.imgDealer4));
         dealerImages.add((ImageView) findViewById(R.id.imgDealer5));
-        */
 
         // Set listeners
         btnBet.setOnClickListener(this);
@@ -74,12 +71,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         screen.setOnClickListener(this);
 
         // Get and display player name and money pool
-        String playerName = getIntent().getStringExtra("playerName");
-        txtPlayerName.setText(playerName);
-
-        int difficulty = getIntent().getIntExtra("playerCash", 200);
-        NumberFormat currency = NumberFormat.getCurrencyInstance();
-        txtMoney.setText(currency.format(difficulty));
+        player = db.getPlayer(getIntent().getStringExtra("playerName"));
+        txtPlayerName.setText(player.getName());
+        txtMoney.setText(currency.format(player.getCash()));
 
         initialize();
     }
@@ -96,6 +90,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         dealerTotal = 0;
         playerCards.clear();
         dealerCards.clear();
+        for (ImageView image: playerImages) {
+            image.setImageResource(R.drawable.blank);
+        }
+        for (ImageView image: dealerImages) {
+            image.setImageResource(R.drawable.blank);
+        }
         addCard("player");
         addCard("player");
         addCard("dealer");
@@ -109,13 +109,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 addCard("player");
                 break;
             case R.id.buttonStay:
-                //TODO
+                while (dealerTotal <= playerTotal && dealerTotal < 21 && dealerCount < 5) {
+                    addCard("dealer");
+                }
+                checkWinLoss(true);
                 break;
             case R.id.buttonFold:
-                initialize();
+                txtBust.setText("FOLD");
+                txtBust.setVisibility(View.VISIBLE);
+                btnBet.setVisibility(View.VISIBLE);
+                btnHit.setVisibility(View.INVISIBLE);
+                btnStay.setVisibility(View.INVISIBLE);
+                btnFold.setVisibility(View.INVISIBLE);
                 break;
             case R.id.buttonBet:
                 initialize();
+                player.setCash(player.getCash() - 10);
+                txtMoney.setText(currency.format(player.getCash()));
                 break;
         }
     }
@@ -124,46 +134,60 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         boolean exitFlag = false;
         Random rand = new Random();
         int randomCard;
-
         while (exitFlag == false)
         {
             randomCard = rand.nextInt(52) + 1;
-            if (actor == "player") {
-                if (!playerCards.contains(randomCard)) {
+            if (!playerCards.contains(randomCard) && !dealerCards.contains(randomCard)) {
+                exitFlag = true;
+                int id = getResources().getIdentifier("card" + randomCard,
+                        "drawable", getPackageName());
+                if (actor == "player") {
                     playerCount += 1;
                     playerCards.add(randomCard);
                     playerTotal += Math.min(db.getCard(randomCard).getValue(), 10);
-                    //txtPlayerCards.setText(playerCards.toString());
-                    playerImages.get(playerCount).setImageResource(R.drawable.card41);
+                    playerImages.get(playerCount-1).setImageResource(id);
                     txtPlayerTotal.setText("Total: " + Integer.toString(playerTotal));
-                    exitFlag = true;
-                }
-            } else if (actor == "dealer") {
-                if (!dealerCards.contains(randomCard)) {
+                } else if (actor == "dealer") {
                     dealerCount += 1;
                     dealerCards.add(randomCard);
                     dealerTotal += Math.min(db.getCard(randomCard).getValue(), 10);
-                    txtDealerCards.setText(dealerCards.toString());
-                    //dealerImages.get(dealerCount).setImageResource(R.drawable.card41);
+                    dealerImages.get(dealerCount - 1).setImageResource(id);
                     txtDealerTotal.setText("Total: " + Integer.toString(dealerTotal));
-                    exitFlag = true;
                 }
             }
         }
-        checkWinLoss();
+        checkWinLoss(false);
     }
 
-    public void checkWinLoss() {
-        if (playerTotal > 21) {
+    public void checkWinLoss(boolean gameOver) {
+        boolean endGame = false;
+        if ((playerCount == 5 && playerTotal <= 21) || playerTotal == 21 || dealerTotal > 21) {
+            txtBust.setText("WIN");
+            player.setCash(player.getCash() + 20);
+            txtMoney.setText(currency.format(player.getCash()));
+            endGame = true;
+        } else if (playerTotal > 21) {
             txtBust.setText("BUST");
+            player.setCash(player.getCash() - 20);
+            txtMoney.setText(currency.format(player.getCash()));
+            endGame = true;
+        } else if (gameOver && playerTotal < dealerTotal) {
+            txtBust.setText("LOSE");
+            player.setCash(player.getCash() - 20);
+            txtMoney.setText(currency.format(player.getCash()));
+            endGame = true;
+        } else if (gameOver && playerTotal >= dealerTotal) {
+            txtBust.setText("WIN");
+            player.setCash(player.getCash() + 20);
+            txtMoney.setText(currency.format(player.getCash()));
+            endGame = true;
+        }
+        if (endGame == true) {
             txtBust.setVisibility(View.VISIBLE);
             btnBet.setVisibility(View.VISIBLE);
             btnHit.setVisibility(View.INVISIBLE);
             btnStay.setVisibility(View.INVISIBLE);
             btnFold.setVisibility(View.INVISIBLE);
-        } else if (playerCount == 5) {
-            // WIN
-            txtBust.setText("WIN");
         }
     }
 }

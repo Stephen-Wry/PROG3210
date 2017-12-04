@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="SWAppBaseTheme" parent="android:Theme.Light">
         <!-- API 1-10 theme customizations go here -->
@@ -9,6 +9,12 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:buttonStyle">@style/SWButton</item>
+    </style>
+
+    <style name="TextView">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">24sp</item>
     </style>
 
     <style name="FullscreenTheme" parent="SWAppTheme">
@@ -21,5 +27,13 @@
 
     <style name="FullscreenActionBarStyle" parent="Widget.AppCompat.ActionBar">
         <item name="android:background">@color/black_overlay</item>
+    </style>
+
+    <style name="SWButton">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:backgroundTint" tools:targetApi="lollipop">@color/colorPrimary</item>
+
+        style="@android:style/Widget.Material.Light.Button.Inset"
     </style>
 </resources>
