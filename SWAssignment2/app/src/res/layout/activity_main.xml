@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="ca.on.conestogac.swassignment2.MainActivity"
+    android:background="@drawable/back">
+
+    <TextView
+        android:id="@+id/dealerLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="#8ed861"
+        android:padding="3dp"
+        android:text="@string/dealerLabel"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/playerLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/imgPlayer1"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="11dp"
+        android:background="#8ed861"
+        android:padding="3dp"
+        android:text="@string/playerLabel"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/dealerCards"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/dealerLabel"
+        android:layout_alignBottom="@+id/dealerLabel"
+        android:layout_marginLeft="11dp"
+        android:layout_marginStart="11dp"
+        android:layout_toEndOf="@+id/dealerLabel"
+        android:layout_toRightOf="@+id/dealerLabel"
+        android:padding="5dp"
+        android:text=""
+        android:textColor="#ffffff"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/playerCards"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/playerLabel"
+        android:layout_alignBottom="@+id/playerLabel"
+        android:layout_marginLeft="11dp"
+        android:layout_marginStart="11dp"
+        android:layout_toEndOf="@+id/dealerLabel"
+        android:layout_toRightOf="@+id/dealerLabel"
+        android:padding="5dp"
+        android:text=""
+        android:textColor="#ffffff"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/buttonFold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_toEndOf="@+id/buttonStay"
+        android:layout_toRightOf="@+id/buttonStay"
+        android:width="120dp"
+        android:background="@android:drawable/alert_dark_frame"
+        android:backgroundTint="@android:color/darker_gray"
+        android:text="Fold"
+        android:textAlignment="center"
+        android:textColor="?android:attr/textColorTertiary" />
+
+    <Button
+        android:id="@+id/buttonStay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:width="120dp"
+        android:background="@android:drawable/alert_light_frame"
+        android:text="Stay"
+        android:textAlignment="center" />
+
+    <Button
+        android:id="@+id/buttonHit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_toLeftOf="@+id/buttonStay"
+        android:layout_toStartOf="@+id/buttonStay"
+        android:width="120dp"
+        android:background="@android:drawable/alert_light_frame"
+        android:text="Hit"
+        android:textAlignment="center" />
+
+    <TextView
+        android:id="@+id/money"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/playerLabel"
+        android:textColor="#ffffff"
+        android:textSize="20sp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
+
+    <TextView
+        android:id="@+id/playerTotal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/playerLabel"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_margin="1dp"
+        android:textColor="#ffffff"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/dealerTotal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_margin="1dp"
+        android:textColor="#ffffff"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/textBust"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-condensed"
+        android:text="BUST"
+        android:textColor="#c40b0b"
+        android:textSize="120sp"
+        android:textStyle="bold"
+        android:visibility="invisible"
+        android:layout_centerVertical="true"
+        android:layout_marginBottom="20dp"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/buttonBet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/buttonHit"
+        android:layout_alignStart="@+id/buttonHit"
+        android:layout_alignTop="@+id/buttonHit"
+        android:width="360dp"
+        android:text="Bet"
+        android:textAlignment="center"
+        android:background="@android:drawable/alert_dark_frame"
+        android:backgroundTint="@android:color/darker_gray"
+        android:visibility="invisible" />
+
+    <ImageView
+        android:id="@+id/imgPlayer1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/buttonHit"
+        android:layout_marginLeft="3dp"
+        android:layout_marginRight="3dp"
+        android:layout_toLeftOf="@+id/imgPlayer2"
+        android:layout_toStartOf="@+id/imgPlayer2"
+        app:srcCompat="@drawable/card2" />
+
+    <ImageView
+        android:id="@+id/imgPlayer2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/buttonStay"
+        android:layout_marginLeft="3dp"
+        android:layout_marginRight="3dp"
+        android:layout_toLeftOf="@+id/imgPlayer3"
+        android:layout_toStartOf="@+id/imgPlayer3"
+        app:srcCompat="@drawable/card10" />
+
+    <ImageView
+        android:id="@+id/imgPlayer3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/buttonStay"
+        android:layout_marginLeft="3dp"
+        android:layout_marginRight="3dp"
+        android:layout_centerHorizontal="true"
+        app:srcCompat="@drawable/card1" />
+
+    <ImageView
+        android:id="@+id/imgPlayer4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/buttonFold"
+        android:layout_marginLeft="3dp"
+        android:layout_marginRight="3dp"
+        android:layout_toEndOf="@+id/imgPlayer3"
+        android:layout_toRightOf="@+id/imgPlayer3"
+        app:srcCompat="@drawable/card19" />
+
+    <ImageView
+        android:id="@+id/imgPlayer5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/buttonFold"
+        android:layout_marginLeft="3dp"
+        android:layout_marginRight="3dp"
+        android:layout_toEndOf="@+id/imgPlayer4"
+        android:layout_toRightOf="@+id/imgPlayer4"
+        app:srcCompat="@drawable/card34" />
+
+    <ImageView
+        android:id="@+id/imgDealer1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/imgDealer3"
+        android:layout_marginLeft="3dp"
+        android:layout_marginRight="3dp"
+        android:layout_toLeftOf="@+id/imgDealer2"
+        android:layout_toStartOf="@+id/imgDealer2"
+        app:srcCompat="@drawable/card15" />
+
+    <ImageView
+        android:id="@+id/imgDealer2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/imgDealer3"
+        android:layout_marginLeft="3dp"
+        android:layout_marginRight="3dp"
+        android:layout_toLeftOf="@+id/imgDealer3"
+        android:layout_toStartOf="@+id/imgDealer3"
+        app:srcCompat="@drawable/card10" />
+
+    <ImageView
+        android:id="@+id/imgDealer3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/dealerLabel"
+        android:layout_marginLeft="3dp"
+        android:layout_marginRight="3dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="12dp"
+        app:srcCompat="@drawable/card1" />
+
+    <ImageView
+        android:id="@+id/imgDealer4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/imgDealer3"
+        android:layout_marginLeft="3dp"
+        android:layout_marginRight="3dp"
+        android:layout_toRightOf="@+id/imgPlayer3"
+        android:layout_toEndOf="@+id/imgPlayer3"
+        app:srcCompat="@drawable/card2" />
+
+    <ImageView
+        android:id="@+id/imgDealer5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/imgDealer3"
+        android:layout_marginLeft="3dp"
+        android:layout_marginRight="3dp"
+        android:layout_toRightOf="@+id/imgPlayer4"
+        android:layout_toEndOf="@+id/imgPlayer4"
+        app:srcCompat="@drawable/card20" />
+
+</RelativeLayout>

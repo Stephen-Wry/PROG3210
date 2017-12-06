@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/back"
+    tools:context="ca.on.conestogac.swassignment2.ProfileActivity">
+
+    <TextView
+        android:id="@+id/profile_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="casual"
+        android:text="@string/Profile"
+        android:textAlignment="center"
+        android:textColor="#ffffff"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+
+    <TableRow>
+
+        <TextView
+            android:id="@+id/name_label"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
+            android:text="Player Name:"
+            android:textStyle="bold"/>
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            android:id="@+id/password_label"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
+            android:text="@string/register_password"
+            android:textStyle="bold" />
+    </TableRow>
+
+    <TableRow>
+
+        <CheckBox
+            android:id="@+id/checkAge"
+            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
+            android:text="I am at least 18 years old" />
+    </TableRow>
+
+    <TableRow>
+        <Button
+            android:id="@+id/buttonRegister"
+            style="@android:style/Widget.DeviceDefault.Button.Inset"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:ems="5"
+            android:text="Badges" />
+
+        <Button
+            android:id="@+id/buttonStats"
+            style="@android:style/Widget.DeviceDefault.Button.Inset"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:ems="5"
+            android:text="Stats" />
+
+
+
+    </TableRow>
+
+    <Button
+        android:id="@+id/buttonStart"
+        style="@android:style/Widget.DeviceDefault.Button.Inset"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:text="Find game" />
+
+</TableLayout>
