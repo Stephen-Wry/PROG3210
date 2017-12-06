@@ -4,17 +4,12 @@
         <!-- API 1-10 theme customizations go here -->
     </style>
 
-    <style name="SWAppTheme" parent="Theme.AppCompat.DayNight.DarkActionBar">
-        <!-- Customize your theme here. -->
+    <style name="SWAppTheme" parent="Theme.AppCompat.DayNight.NoActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textViewStyle">@style/SWTextView</item>
         <item name="android:buttonStyle">@style/SWButton</item>
-    </style>
-
-    <style name="TextView">
-        <item name="android:textStyle">bold</item>
-        <item name="android:textSize">24sp</item>
     </style>
 
     <style name="FullscreenTheme" parent="SWAppTheme">
@@ -29,11 +24,16 @@
         <item name="android:background">@color/black_overlay</item>
     </style>
 
+    <style name="SWTextView">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+    </style>
+
     <style name="SWButton">
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/colorAccent</item>
         <item name="android:backgroundTint" tools:targetApi="lollipop">@color/colorPrimary</item>
-
-        style="@android:style/Widget.Material.Light.Button.Inset"
     </style>
 </resources>

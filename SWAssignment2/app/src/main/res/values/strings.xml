@@ -12,4 +12,13 @@
     <string name="subtitle">PROG3210 Assignment 2</string>
     <string name="register_name">Username:</string>
     <string name="register_password">Password:</string>
+    <string name="Profile">Profile</string>
+    <string name="admin_label">Administration</string>
+    <string name="admin_play">Play Game</string>
+    <string name="admin_player">Player</string>
+    <string name="admin_execute">Execute</string>
+    <string name="admin_return">Return</string>
+    <string name="admin_get">Get</string>
+    <string name="admin_getPlayer">Get Player</string>
+    <string name="admin_managePlayer">Manage Player</string>
 </resources>

@@ -46,19 +46,23 @@
 
     <Button
         android:id="@+id/buttonLogin"
-        style="@android:style/Widget.Material.Light.Button.Inset"
+        style="@android:style/Widget.DeviceDefault.Button.Inset"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="80dp"
         android:layout_marginRight="80dp"
-        android:text="@string/Login" />
+        android:text="@string/Login"
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/buttonRegister"
+        style="@android:style/Widget.DeviceDefault.Button.Inset"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="80dp"
         android:layout_marginRight="80dp"
-        android:text="@string/Register" />
+        android:text="@string/Register"
+        android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button"
+        android:textStyle="bold" />
 
 </LinearLayout>

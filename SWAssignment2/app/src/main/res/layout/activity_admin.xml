@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:stretchColumns="1"
+    android:background="@android:color/black"
+    tools:context="ca.on.conestogac.swassignment2.AdminActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:text="@string/admin_label"
+        android:textAlignment="center"
+        android:textColor="#ffffff" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorAccent"
+        android:text="@string/admin_getPlayer"
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimaryDark" />
+
+    <TableRow android:layout_marginLeft="8dp" android:layout_marginRight="8dp">
+        <TextView
+            android:text="Name"
+            android:textColor="@android:color/white"
+            android:padding="3dp"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/txtGetID"
+            android:layout_marginRight="24dp"
+            android:textColor="@android:color/white"
+            android:gravity="end"
+            android:padding="3dp" />
+    </TableRow>
+
+    <Button
+        android:id="@+id/btnGet"
+        style="@android:style/Widget.DeviceDefault.Button.Inset"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:text="@string/admin_get" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorAccent"
+        android:text="@string/admin_managePlayer"
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimaryDark" />
+
+    <TableRow android:layout_marginLeft="8dp" android:layout_marginRight="8dp">
+        <TextView
+            android:text="ID"
+            android:textColor="@android:color/white"
+            android:padding="3dp"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/txtID"
+            android:layout_marginRight="24dp"
+            android:textColor="@android:color/white"
+            android:gravity="end"
+            android:padding="3dp" />
+    </TableRow>
+
+    <TableRow android:layout_marginLeft="8dp" android:layout_marginRight="8dp">
+        <TextView
+            android:text="Name"
+            android:textColor="@android:color/white"
+            android:padding="3dp"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/txtName"
+            android:layout_marginRight="24dp"
+            android:textColor="@android:color/white"
+            android:gravity="end"
+            android:padding="3dp" />
+    </TableRow>
+
+    <TableRow android:layout_marginLeft="8dp" android:layout_marginRight="8dp">
+        <TextView
+            android:text="Password"
+            android:textColor="@android:color/white"
+            android:padding="3dp"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/txtPassword"
+            android:layout_marginRight="24dp"
+            android:textColor="@android:color/white"
+            android:gravity="end"
+            android:padding="3dp" />
+    </TableRow>
+
+    <TableRow android:layout_marginLeft="8dp" android:layout_marginRight="8dp">
+        <TextView
+            android:text="Level"
+            android:textColor="@android:color/white"
+            android:padding="3dp"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/txtLevel"
+            android:layout_marginRight="24dp"
+            android:textColor="@android:color/white"
+            android:gravity="end"
+            android:padding="3dp" />
+    </TableRow>
+
+    <TableRow android:layout_marginLeft="8dp" android:layout_marginRight="8dp">
+        <TextView
+            android:text="XP"
+            android:textColor="@android:color/white"
+            android:padding="3dp"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/txtXP"
+            android:layout_marginRight="24dp"
+            android:textColor="@android:color/white"
+            android:gravity="end"
+            android:padding="3dp" />
+    </TableRow>
+
+    <TableRow android:layout_marginLeft="8dp" android:layout_marginRight="8dp">
+        <TextView
+            android:text="Cash"
+            android:textColor="@android:color/white"
+            android:padding="3dp"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/txtCash"
+            android:layout_marginRight="24dp"
+            android:textColor="@android:color/white"
+            android:gravity="end"
+            android:padding="3dp" />
+    </TableRow>
+
+    <LinearLayout android:background="@android:color/darker_gray">
+        <RadioGroup
+            android:id="@+id/crudGroup"
+            android:orientation="horizontal"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent">
+            <RadioButton
+                android:id="@+id/rdoCreate"
+                android:text="Create"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textAlignment="center"
+                android:checked="true"/>
+            <RadioButton
+                android:id="@+id/rdoUpdate"
+                android:text="Update"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:layout_weight="1" />
+            <RadioButton
+                android:id="@+id/rdoDelete"
+                android:text="Delete"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:layout_weight="1" />
+        </RadioGroup>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnExecute"
+        style="@android:style/Widget.DeviceDefault.Button.Inset"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:text="@string/admin_execute" />
+
+    <TextView
+        android:id="@+id/txtValidation"
+        android:textColor="@color/validation"
+        android:padding="3dp"
+        android:textSize="14sp"
+        android:textAlignment="center"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent" />
+
+    <TableRow>
+        <Button
+            android:id="@+id/btnPlay"
+            style="@android:style/Widget.DeviceDefault.Button.Inset"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:text="@string/admin_play" />
+
+        <Button
+            android:id="@+id/btnReturn"
+            style="@android:style/Widget.DeviceDefault.Button.Inset"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:text="@string/admin_return" />
+    </TableRow>
+
+</TableLayout>

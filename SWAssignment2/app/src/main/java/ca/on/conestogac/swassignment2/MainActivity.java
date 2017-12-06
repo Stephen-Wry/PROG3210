@@ -146,13 +146,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     playerCards.add(randomCard);
                     playerTotal += Math.min(db.getCard(randomCard).getValue(), 10);
                     playerImages.get(playerCount-1).setImageResource(id);
-                    txtPlayerTotal.setText("Total: " + Integer.toString(playerTotal));
+                    txtPlayerTotal.setText(Integer.toString(playerTotal));
                 } else if (actor == "dealer") {
                     dealerCount += 1;
                     dealerCards.add(randomCard);
                     dealerTotal += Math.min(db.getCard(randomCard).getValue(), 10);
                     dealerImages.get(dealerCount - 1).setImageResource(id);
-                    txtDealerTotal.setText("Total: " + Integer.toString(dealerTotal));
+                    txtDealerTotal.setText(Integer.toString(dealerTotal));
                 }
             }
         }

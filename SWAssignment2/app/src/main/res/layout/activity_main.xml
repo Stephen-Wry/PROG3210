@@ -28,10 +28,10 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/imgPlayer1"
         android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
+        android:layout_alignParentStart="true"
         android:layout_marginBottom="11dp"
-        android:layout_toEndOf="@+id/money"
-        android:layout_toRightOf="@+id/money"
         android:background="#8ed861"
         android:padding="3dp"
         android:text="@string/playerLabel"
@@ -72,13 +72,15 @@
         android:id="@+id/buttonFold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_toEndOf="@+id/buttonStay"
+        android:layout_toRightOf="@+id/buttonStay"
         android:width="120dp"
         android:background="@android:drawable/alert_dark_frame"
+        android:backgroundTint="@android:color/darker_gray"
         android:text="Fold"
-        android:textColor="#911b2a"
-        android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@+id/buttonStay"
-        android:layout_toEndOf="@+id/buttonStay" />
+        android:textAlignment="center"
+        android:textColor="?android:attr/textColorTertiary" />
 
     <Button
         android:id="@+id/buttonStay"
@@ -88,7 +90,8 @@
         android:layout_centerHorizontal="true"
         android:width="120dp"
         android:background="@android:drawable/alert_light_frame"
-        android:text="Stay" />
+        android:text="Stay"
+        android:textAlignment="center" />
 
     <Button
         android:id="@+id/buttonHit"
@@ -99,7 +102,8 @@
         android:layout_toStartOf="@+id/buttonStay"
         android:width="120dp"
         android:background="@android:drawable/alert_light_frame"
-        android:text="Hit" />
+        android:text="Hit"
+        android:textAlignment="center" />
 
     <TextView
         android:id="@+id/money"
@@ -118,7 +122,7 @@
         android:layout_alignTop="@+id/playerLabel"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_margin="7dp"
+        android:layout_margin="1dp"
         android:textColor="#ffffff"
         android:text="" />
 
@@ -129,7 +133,7 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
-        android:layout_margin="7dp"
+        android:layout_margin="1dp"
         android:textColor="#ffffff"
         android:text="" />
 
@@ -151,12 +155,15 @@
         android:id="@+id/buttonBet"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/buttonHit"
+        android:layout_alignStart="@+id/buttonHit"
+        android:layout_alignTop="@+id/buttonHit"
         android:width="360dp"
         android:text="Bet"
-        android:visibility="invisible"
-        android:layout_alignTop="@+id/buttonHit"
-        android:layout_alignLeft="@+id/buttonHit"
-        android:layout_alignStart="@+id/buttonHit" />
+        android:textAlignment="center"
+        android:background="@android:drawable/alert_dark_frame"
+        android:backgroundTint="@android:color/darker_gray"
+        android:visibility="invisible" />
 
     <ImageView
         android:id="@+id/imgPlayer1"

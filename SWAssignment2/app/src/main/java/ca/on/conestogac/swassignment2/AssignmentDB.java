@@ -188,9 +188,9 @@ public class AssignmentDB {
         return rowCount;
     }
 
-    public int deletePlayer(long id) {
+    public int deletePlayer(String id) {
         String where = "id = ?";
-        String[] whereArgs = { String.valueOf(id) };
+        String[] whereArgs = { id };
         this.openWriteableDB();
         int rowCount = db.delete("player", where, whereArgs);
         this.closeDB();

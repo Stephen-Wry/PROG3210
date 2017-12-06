@@ -31,20 +31,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         // Set listeners
         btnLogin.setOnClickListener(this);
         btnRegister.setOnClickListener(this);
-
-        Log.d("Reading: ", "Reading all players ...");
-        ArrayList<Player> players = db.getPlayers();
-        for (Player player : players) {
-            String log = "Id: " + player.getId() + ", Name: " + player.getName() + ", Password: " + player.getPassword();
-            Log.d("Player: : ", log);
-        }
-
-        Log.d("Reading: ", "Reading all cards ...");
-        ArrayList<Card> cards = db.getCards();
-        for (Card card : cards) {
-            String log = "Id: " + card.getId() + ", Value: " + card.getValue() + ", Type: " + card.getType();
-            Log.d("Card: : ", log);
-        }
     }
 
     @Override
@@ -62,17 +48,23 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     public void Login() {
         String playerName = txtLoginName.getText().toString();
         if (playerName == null || playerName.isEmpty()) {
-            // NULL
+            //TODO :: Empty fields
         } else {
-            Log.d("Reading: ", "Reading player...");
             Player player = db.getPlayer(playerName);
-            if (player.getPassword().equals(txtPassword.getText().toString())) {
-                Intent openMainActivity = new Intent(LoginActivity.this, MainActivity.class);
-                openMainActivity.putExtra("playerName", player.getName());
-                startActivity((openMainActivity));
-                finish();
-            } else {
-                //wrong password
+            if (player != null && player.getPassword() != null ) {
+                if (player.getPassword().equals(txtPassword.getText().toString())) {
+                    Intent openActivity;
+                    if (playerName.equals("admin")) {
+                        openActivity = new Intent(LoginActivity.this, AdminActivity.class);
+                    } else {
+                        openActivity = new Intent(LoginActivity.this, MainActivity.class);
+                    }
+                    openActivity.putExtra("playerName", player.getName());
+                    startActivity((openActivity));
+                    finish();
+                } else {
+                    //TODO :: Wrong password
+                }
             }
         }
     }
@@ -87,4 +79,3 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         finish();
     }
 }
-
